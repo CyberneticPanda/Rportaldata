@@ -4,14 +4,14 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of Rportaldata is to ...
+The goal of Rportaldata is to analyze homo sapiens to Lupus Canus Familiars. 
 
 ## Installation
 
 You can install the development version of Rportaldata like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+
 ```
 
 ## Example
