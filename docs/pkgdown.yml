@@ -2,8 +2,8 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
-  Data Anaylsis: Data_Anaylsis.html
-  Phylogeny Tree: Phylogeny_Tree.html
+  Data Anaylsis: Data Anaylsis.html
   Evo_Paper: Evo_Paper.html
-last_built: 2023-05-10T18:31Z
+  Phylogeny Tree: Phylogeny Tree.html
+last_built: 2023-05-10T22:34Z
 

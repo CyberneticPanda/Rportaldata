@@ -11,11 +11,6 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r setup}
-install.packages("ape")
-install.packages("rotl")
-```
-
 ```{r}
 library("ape")
 library("rotl") 
@@ -102,9 +97,24 @@ all_ott_ids <- c(my_ott_ids, My_Farm$ott_id[1:7])
 final_tree <- tol_induced_subtree(ott_ids = all_ott_ids, label_format = "name")
 ```
 
+```{r}
+final_tree$tip.label
+```
 
 ```{r}
-plot.phylo(final_tree, cex = 1000, edge.width = 0.75, node.width = 0.50, edge.lty = "dashed", show.tip.label = FALSE, tip.color = my_ott_ids)
+Colors_Dog <- rep("white", length(final_tree$tip.label))
+Colors_Dog[85:103] <- "red"
+Colors_Dog[78:84] <- "blue"
+```
+
+```{r}
+Colors_Dog
+```
+
+
+
+```{r, fig.height = 13, fig.width =  7}
+plot.phylo(final_tree, cex = 0.15, edge.width = 0.75, node.width = 0.50, edge.lty = "dashed", show.tip.label = TRUE, tip.color = Colors_Dog, edge.color = "white")
 title("My Phylogeny Tree") 
 ```
 
