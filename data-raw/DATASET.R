@@ -15,3 +15,11 @@ head(taxonomy)
 nrow(taxonomy)
 colnames(taxonomy)
 
+#pkgdown to create the website from an R package repository
+install.packages("pkgdown")
+library(pkgdown)
+library(usethis)
+use_pkgdown()
+build_site()
+use_vignette(name = "intro")
+use_vignette(name = "tree")
