@@ -1,0 +1,23 @@
+---
+title: "Evo_Paper"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Evo_Paper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, setup}
+setwd("~/Desktop/Rportaldata/data-raw")
+```
+
+```{r}
+readLines("../data-raw/Outline 0X 2-3.txt")
+```

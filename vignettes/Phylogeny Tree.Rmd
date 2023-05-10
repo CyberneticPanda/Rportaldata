@@ -2,7 +2,7 @@
 title: "Phylogeny Tree"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tree}
+  %\VignetteIndexEntry{Phylogeny Tree}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
