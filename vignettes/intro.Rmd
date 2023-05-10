@@ -33,5 +33,3 @@ Working_memory
 ```{r}
 Complete_Data <- inner_join(Eye_Contact, Gesture, Inhibitory_Control, by = "Name") %>% inner_join(Summary, Temperament, by = "Name") %>% inner_join(Working_memory, by = "Name") 
 ```
-
-
