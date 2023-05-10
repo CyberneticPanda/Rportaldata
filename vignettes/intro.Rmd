@@ -11,8 +11,10 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 ```
-.
-```{r}
+
+# This page is the breakdown page 
+
+```{r, echo=FALSE}
 Eye_Contact <- read.csv(file = "../data-raw/Raw Data/EyeContact_Data.csv")
 Gesture <- read.csv(file = "../data-raw/Raw Data/Gesture_Data.csv")
 Inhibitory_Control <- read.csv(file = "../data-raw/Raw Data/InhibitoryControl_Data.csv")
@@ -21,7 +23,7 @@ Temperament <- read.csv(file = "../data-raw/Raw Data/Temperament_Data.csv")
 Working_memory <- read.csv(file = "../data-raw/Raw Data/WorkingMemory_Data.csv")
 ```
 
-```{r}
+```{r, echo=FALSE} 
 Eye_Contact
 Gesture
 Inhibitory_Control
