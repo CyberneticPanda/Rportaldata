@@ -4,7 +4,7 @@
 #getwd
 download.file(url = "https://lunasare.github.io/spring2023-data-science/data/portal-species-taxonomy.csv",
               destfile = "data-raw/portal-species-taxonomy.csv")
-function.portal <-read.csv(file = "data-raw/portal-species-taxonmy.csv")
+function.portal <- read.csv(file = "data-raw/portal-species-taxonmy.csv")
 taxonomy <- read.csv(file = "data-raw/portal-species-taxonomy.csv")
 # this last function saves the object in R format
 library(usethis)

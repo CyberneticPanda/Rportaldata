@@ -15,6 +15,29 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-# Insert Data stuff here
+library(dplyr)
 ```
+
+```{r}
+Eye_Contact <- read.csv(file = "../data-raw/Raw Data/EyeContact_Data.csv")
+Gesture <- read.csv(file = "../data-raw/Raw Data/Gesture_Data.csv")
+Inhibitory_Control <- read.csv(file = "../data-raw/Raw Data/InhibitoryControl_Data.csv")
+Summary <- read.csv(file = "../data-raw/Raw Data/Summary_Data.csv")
+Temperament <- read.csv(file = "../data-raw/Raw Data/Temperament_Data.csv")
+Working_memory <- read.csv(file = "../data-raw/Raw Data/WorkingMemory_Data.csv")
+```
+
+```{r}
+Eye_Contact
+Gesture
+Inhibitory_Control
+Summary
+Temperament
+Working_memory
+```
+
+```{r}
+Complete_Data <- inner_join(Eye_Contact, Gesture, Inhibitory_Control, by = "Name") %>% inner_join(Summary, Temperament, by = "Name") %>% inner_join(Working_memory, by = "Name") 
+```
+
 
