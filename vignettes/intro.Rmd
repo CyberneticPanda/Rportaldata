@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 ```
-
+.
 ```{r}
 Eye_Contact <- read.csv(file = "../data-raw/Raw Data/EyeContact_Data.csv")
 Gesture <- read.csv(file = "../data-raw/Raw Data/Gesture_Data.csv")
