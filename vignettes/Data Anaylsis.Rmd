@@ -1,8 +1,8 @@
 ---
-title: "Data Anaylsis"
+title: "Data_Anaylsis"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Data Anaylsis}
+  %\VignetteIndexEntry{Data_Anaylsis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

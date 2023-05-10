@@ -1,8 +1,8 @@
 ---
-title: "Phylogeny Tree"
+title: "Phylogeny_Tree"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Phylogeny Tree}
+  %\VignetteIndexEntry{Phylogeny_Tree}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
