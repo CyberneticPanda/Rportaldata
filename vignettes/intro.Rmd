@@ -8,13 +8,7 @@ vignette: >
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
-```{r}
+knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 ```
 
