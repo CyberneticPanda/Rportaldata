@@ -7,17 +7,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE, echo = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, echo = FALSE}
+# Library Install
+```{r}
 library(dplyr)
 ```
 
-# This page is the breakdown page 
 
-```{r, echo = FALSE}
+# Loading of files
+```{r}
 Eye_Contact <- read.csv(file = "../data-raw/Raw Data/EyeContact_Data.csv")
 Gesture <- read.csv(file = "../data-raw/Raw Data/Gesture_Data.csv")
 Inhibitory_Control <- read.csv(file = "../data-raw/Raw Data/InhibitoryControl_Data.csv")
@@ -26,7 +27,8 @@ Temperament <- read.csv(file = "../data-raw/Raw Data/Temperament_Data.csv")
 Working_memory <- read.csv(file = "../data-raw/Raw Data/WorkingMemory_Data.csv")
 ```
 
-```{r, echo=FALSE} 
+# Various of tests
+```{r} 
 Eye_Contact
 Gesture
 Inhibitory_Control
@@ -35,31 +37,94 @@ Temperament
 Working_memory
 ```
 
-```{r}
+```{r, echo = FALSE}
 Complete_Data_Wolf <- inner_join(Eye_Contact, Gesture, Inhibitory_Control, by = "Name") %>% inner_join(Summary, Temperament, by = "Name") %>% inner_join(Working_memory, by = "Name") %>% filter(Species.x == "Wolf")
 ```
 
-```{r}
+```{r, echo = FALSE}
 Complete_Data_Dog<- inner_join(Eye_Contact, Gesture, Inhibitory_Control, by = "Name") %>% inner_join(Summary, Temperament, by = "Name") %>% inner_join(Working_memory, by = "Name") %>% filter(Species.x == "Dog") 
 ```
 
-```{r}
+```{r, echo = FALSE}
 str(Complete_Data_Dog)
 ```
 
-```{r}
+```{r, echo = FALSE}
+str(Complete_Data_Wolf)
+```
 
+# Mean/Median/Standard Deviation for Dog's Eye Contact interactions time/sec.
+```{r}
+Complete_Data_Dog |>
+  summarize(xbar = mean(Complete_Data_Dog$Eye.Contact, na.rm = TRUE), median = median(Complete_Data_Dog$Eye.Contact, na.rm = TRUE), s = sd(Complete_Data_Dog$Eye.Contact, na.rm = TRUE))
+```
+
+# Mean/Median/Standard Deviation for Wolf's Eye Contact interactions time/sec.
+```{r}
+Complete_Data_Wolf |>
+  summarize(xbar = mean(Complete_Data_Wolf$Eye.Contact, na.rm = TRUE), median = median(Complete_Data_Wolf$Eye.Contact, na.rm = TRUE), s = sd(Complete_Data_Wolf$Eye.Contact, na.rm = TRUE))
 ```
 
 ```{r}
+boxplot(Complete_Data_Wolf$Eye.Contact, Complete_Data_Dog$Eye.Contact, main = "Wolf vs Dogs: Eye-Contact", xlab = "Species", ylab = "Contact per sec", col = c("red", "brown"), names = c("Wolf", "Dog"), horizontal = TRUE)
+```
 
+# Succees Rate of Wolfs finding food within a route without touching transparent walls
+```{r}
+Inhibitory_Control |> filter(Species == "Wolf") %>% 
+  summarize(xbar = mean(Correct/Trial, na.rm = TRUE), median = median(Correct/Trial, na.rm = TRUE), s = sd(Correct/Trial, na.rm = TRUE))
+```
+
+# Succees Rate of Dogs finding food within a route without touching transparent walls 
+```{r}
+Inhibitory_Control |> filter(Species == "Dog") %>% 
+  summarize(xbar = mean(Correct/Trial, na.rm = TRUE), median = median(Correct/Trial, na.rm = TRUE), s = sd(Correct/Trial, na.rm = TRUE))
+```
+
+```{r, echo = FALSE}
+Inhibitory_Control %>% filter(Species == "Dog") -> Inhibitory_Control_Dog
+Inhibitory_Control %>% filter(Species == "Wolf") -> Inhibitory_Control_Wolf
+```
+
+
+```{r, echo = FALSE}
+boxplot(Inhibitory_Control_Wolf$Correct/Inhibitory_Control_Wolf$Trial, Inhibitory_Control_Dog$Correct/Inhibitory_Control_Dog$Trial, main = "Wolf vs Dogs: Senses", xlab = "Species", ylab = "Chance % of bumping into transparent walls to each to food", col = c("red", "brown"), names = c("Wolf", "Dog"), horizontal = TRUE)
 ```
 
 ```{r}
+Working_memory |> filter(Species == "Dog") %>% 
+  summarize(xbar = mean(Trials, na.rm = TRUE), median = median(Trials, na.rm = TRUE), s = sd(Trials, na.rm = TRUE)) 
+```
 
+```{r, echo = FALSE}
+Working_memory %>% filter(Species == "Dog") -> Working_memory_Dog
+```
+
+```{r, echo = FALSE}
+Working_memory %>% filter(Species == "Wolf") -> Working_memory_Wolf
+```
+
+
+```{r}
+Working_memory |> filter(Species == "Wolf") %>% 
+  summarize(xbar = mean(Trials, na.rm = TRUE), median = median(Trials, na.rm = TRUE), s = sd(Trials, na.rm = TRUE))
 ```
 
 ```{r}
-
+boxplot(Working_memory_Wolf$Trials, Working_memory_Dog$Trials, main = "Wolf vs Dogs: Memory", xlab = "Species", ylab = "Numbers of attempts to complete memory test", col = c("red", "brown"), names = c("Wolf", "Dog"), horizontal = TRUE)
 ```
 
+# Paired T-Test
+```{r}
+Wolf_Test_Memory <- c(rnorm(100, mean = 11.15385, sd = 6.398077	))
+Wolf_Test_Eye_Contact <- c(rnorm(100, mean = 1.736667, sd = 2.259502))
+t.test(Wolf_Test_Memory, Wolf_Test_Eye_Contact, paired = TRUE)
+```
+* Wolf's ability to maintain eye contact with an individual does have an association to their memory capabilities. 
+
+```{r}
+Dog_Test_Memory <- c(rnorm(100, mean = 11.25581, sd = 7.000316	))
+Dog_Test_Eye_Contact <- c(rnorm(100, mean = 4.705909, sd = 4.663277))
+t.test(Dog_Test_Memory, Dog_Test_Eye_Contact, paired = TRUE)
+```
+* Dog's ability to maintain eye contact with an individual does have an association to their memory capabilities. 
