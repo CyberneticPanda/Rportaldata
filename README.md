@@ -16,7 +16,7 @@
 
 # Results/Observations
 
-*
+* Human domestication of dogs have resulted in enhance behaviors and interactions among its environments in comparison to wolfs.
 
 # The Creator: ME -> Austin Mercado
 
