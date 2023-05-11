@@ -116,5 +116,5 @@ Colors_Dog
 ```{r, fig.height = 13, fig.width =  7}
 plot.phylo(final_tree, cex = 0.15, edge.width = 0.75, node.width = 0.50, edge.lty = "dashed", show.tip.label = TRUE, tip.color = Colors_Dog, edge.color = "white")
 title("My Phylogeny Tree") 
+legend(1, 95, legend=c("Canis", "Homo"), fill = c("red", "blue"))
 ```
-

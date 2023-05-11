@@ -7,17 +7,19 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include = FALSE, echo = FALSE}
 knitr::opts_chunk$set(
   collpase = TRUE,
   commnet = '#>'
 )
 ```
 
-```{r, setup}
+```{r, setup, echo = FALSE}
 setwd("~/Desktop/Rportaldata/data-raw")
 ```
 
-```{r}
+# My Coevolution Paper
+
+```{r, echo = FALSE}
 readLines("../data-raw/Outline 0X 2-3.txt")
 ```

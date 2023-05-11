@@ -7,17 +7,17 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include = FALSE, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, echo = FALSE}
 library(dplyr)
 ```
 
 # This page is the breakdown page 
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 Eye_Contact <- read.csv(file = "../data-raw/Raw Data/EyeContact_Data.csv")
 Gesture <- read.csv(file = "../data-raw/Raw Data/Gesture_Data.csv")
 Inhibitory_Control <- read.csv(file = "../data-raw/Raw Data/InhibitoryControl_Data.csv")
