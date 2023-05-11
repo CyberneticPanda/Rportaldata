@@ -7,17 +7,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include = FALSE, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+# Prior packages needed to develop tree
+```{r, echo = FALSE}
 library("ape")
 library("rotl") 
 library("nlme")
 ```
 
-```{r}
+```{r, echo = FALSE}
 My_Farm <- tnrs_match_names(c("Canis", "Homo", "Gallus", "Python", "Sciurus", "Geomys", "Accipiter"))
 My_Farm
 ```
@@ -25,57 +26,57 @@ My_Farm
 Once with the OTT id, we can get all the children from a taxon
 
 
-```{r}
+```{r, echo = FALSE}
 tol_node_info(ott_id = My_Farm$ott_id[1])
 ```
 
-```{r}
+```{r, echo = FALSE}
 lupus_tree <- tol_subtree(node_id = "ott247341", label_format = "id") 
 lupus_tree$tip.label
 ```
 
 Get the OTT ids for Homo
 
-```{r}
+```{r, echo = FALSE}
 tol_node_info(ott_id = My_Farm$ott_id[2])
 ```
-```{r}
+```{r, echo = FALSE}
 homo_tree <- tol_subtree(node_id = "ott770309", label_format = "id")
 homo_tree$tip.label
 ```
 
-```{r}
+```{r, echo = FALSE}
 tol_node_info(ott_id = My_Farm$ott_id[3])
 ```
 
-```{r}
+```{r, echo = FALSE}
 gallus_tree <- tol_subtree(node_id = "ott153562", label_format = "id")
 gallus_tree$tip.label
 ```
 
-```{r}
+```{r, echo = FALSE}
 tol_node_info(ott_id = My_Farm$ott_id[4])
 ```
 
-```{r}
+```{r, echo = FALSE}
 python_tree <- tol_subtree(node_id = "ott675102", label_format = "id")
 python_tree$tip.label
 ```
 
-```{r}
+```{r, echo = FALSE}
 tol_node_info(ott_id = My_Farm$ott_id[5])
 ```
 
-```{r}
+```{r, echo = FALSE}
 sciurus_tree <- tol_subtree(node_id = "ott649553", label_format = "id")
 sciurus_tree$tip.label
 ```
 
-```{r}
+```{r, echo = FALSE}
 tol_node_info(ott_id = My_Farm$ott_id[6])
 ```
 
-```{r}
+```{r, echo = FALSE}
 geomys_tree <- tol_subtree(node_id = "ott1021691", label_format = "id")
 geomys_tree$tip.label
 ```
@@ -84,12 +85,12 @@ geomys_tree$tip.label
 tol_node_info(ott_id = My_Farm$ott_id[7])
 ```
 
-```{r}
+```{r, echo = FALSE, results = "hide"}
 accipiter_tree <- tol_subtree(node_id = "mrcaott8285ott34284", label_format = "id")
 accipiter_tree$tip.label
 ```
 
-```{r}
+```{r, echo = FALSE, results = "hide"}
 #remove ott prefix from tip label:
 my_ott_ids <- gsub("ott", "", c(lupus_tree$tip.label, homo_tree$tip.label, gallus_tree$tip.label , python_tree$tip.label, sciurus_tree$tip.label, geomys_tree$tip.label, accipiter_tree$tip.label))
 my_ott_ids
@@ -97,21 +98,19 @@ all_ott_ids <- c(my_ott_ids, My_Farm$ott_id[1:7])
 final_tree <- tol_induced_subtree(ott_ids = all_ott_ids, label_format = "name")
 ```
 
-```{r}
+```{r, echo = FALSE}
 final_tree$tip.label
 ```
 
-```{r}
+```{r, echo = FALSE}
 Colors_Dog <- rep("white", length(final_tree$tip.label))
 Colors_Dog[85:103] <- "red"
 Colors_Dog[78:84] <- "blue"
 ```
 
-```{r}
+```{r, echo = FALSE, results = "hide"}
 Colors_Dog
 ```
-
-
 
 ```{r, fig.height = 13, fig.width =  7}
 plot.phylo(final_tree, cex = 0.15, edge.width = 0.75, node.width = 0.50, edge.lty = "dashed", show.tip.label = TRUE, tip.color = Colors_Dog, edge.color = "white")
