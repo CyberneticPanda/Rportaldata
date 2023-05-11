@@ -6,7 +6,7 @@
 
 ## Purpose
 
-![My Custom Diagram](https://github.com/CyberneticPanda/Rportaldata/blob/main/Screenshot%20from%202023-05-11%2000-02-08.png)
+![My Custom Diagram](man/figures/Diagram.png)
 
 * The goal of this project is to analyze relations between Lupus Canis with relations to Lupus Canis Familiars due to domestication by Humans. 
 
